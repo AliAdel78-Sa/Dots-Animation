@@ -6,9 +6,11 @@ function createDot() {
 	moveDot(dot);
 }
 function moveDot(dot) {
+	const randomTop = Math.floor(Math.random() * screen.height);
 	const randomLeft = Math.floor(Math.random() * screen.width);
 	const randomWidth = Math.floor(Math.random() * 4 + 1);
 	const randomSpeed = Math.floor(Math.random() * 3 + 2);
+	let currentTop = randomTop;
 	let currentLeft = randomLeft;
 	dot.style.width = randomWidth + "px";
 	dot.style.top = Math.floor(Math.random() * screen.height) + "px";
@@ -16,12 +18,17 @@ function moveDot(dot) {
 
 	// Updating Position Every 10 Milliseconds
 	setInterval(() => {
+		currentTop += randomSpeed;
 		currentLeft += randomSpeed;
+		if (currentTop > screen.height) {
+			currentTop = -randomWidth;
+		}
 		if (currentLeft > screen.width) {
 			currentLeft = -randomWidth;
 		}
 
 		dot.style.left = currentLeft + "px";
+		dot.style.top = currentTop + "px";
 	}, 10);
 
 	// Changing Colors Every 1000 Milliseconds
@@ -39,6 +46,6 @@ function generateRandomColor() {
 	}
 	return color;
 }
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 150; i++) {
 	createDot();
 }
