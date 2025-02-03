@@ -9,7 +9,7 @@ function moveDot(dot) {
 	const randomTop = Math.floor(Math.random() * screen.height);
 	const randomLeft = Math.floor(Math.random() * screen.width);
 	const randomWidth = Math.floor(Math.random() * 4 + 1);
-	const randomSpeed = Math.floor(Math.random() * 3 + 2);
+	const randomSpeed = Math.floor(Math.random() * 5 + 2);
 	let currentTop = randomTop;
 	let currentLeft = randomLeft;
 	dot.style.width = randomWidth + "px";
